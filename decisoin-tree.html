@@ -22,21 +22,40 @@
    
     <script src="js/tree.js"></script>
     <script>
-        var i = 0;
-        function callYes(){
-            //alert("yes called!");
-            var no = document.getElementById('lvl1No');
+        var i =0;
+        
+        function callYes(callerParam){
+            console.log("called with "+callerParam);
+            var no = document.getElementById(callerParam+'No');
             no.style.display = 'none'; //or none
           //no.style.visibility = 'hidden';
-          createNode("root", "Button", "lvl2Yes", "Yes", "btn-lg btn-warning");
-          createNode("root", "Button", "lvl2No", "No", "btn-lg btn-danger");
+          i++;
+          var param = "\'lvl"+i+"\'";
+          console.log("param "+param);
+          createDiv("rootDiv","lvl"+(i)+"Div");
+          createNode("lvl"+(i)+"Div", "Button", "lvl"+(i)+"Yes", "Yes", "btn-lg btn-warning","callYes("+param+")");
+          createNode("lvl"+(i)+"Div", "Button", "lvl"+(i)+"No", "No", "btn-lg btn-danger","callNo("+param+")");
         }
-        function callNo(){
-            //alert("yes called!");
-            var no = document.getElementById('lvl1Yes');
+        function callNo(callerParam){
+            console.log("called with "+callerParam);
+            var no = document.getElementById(callerParam+'Yes');
             no.style.display = 'none'; //or
           //no.style.visibility = 'hidden';
         }
+        /*function callYes(){
+            alert("yes called!");
+            var no = document.getElementById('lvl1No');
+            no.style.display = 'none'; //or none
+          //no.style.visibility = 'hidden';
+          //createNode("rootDiv", "Button", "lvl2Yes", "Yes", "btn-lg btn-warning","callYes()");
+          //createNode("rootDiv", "Button", "lvl2No", "No", "btn-lg btn-danger","callNo()");
+        }
+        function callNo(){
+            alert("yes called!");
+            var no = document.getElementById('lvl1Yes');
+            no.style.display = 'none'; //or
+          //no.style.visibility = 'hidden';
+        }*/
     </script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
