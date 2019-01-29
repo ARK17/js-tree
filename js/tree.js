@@ -1,16 +1,15 @@
-function myTree() {
-    var node = document.createElement("Button");
-    node.setAttribute("id", "lvl1yes");
-    var textnode = document.createTextNode("Yes");
-    node.appendChild(textnode);
-    document.getElementById("root").appendChild(node);
-    var node = document.createElement("Button");
-    node.setAttribute("id", "lvl1no");
-    var textnode = document.createTextNode("No");
-    node.appendChild(textnode);
-    document.getElementById("root").appendChild(node);
-    
+function myTreeInit() {
+    createNode("root", "Button", "lvl1Yes", "Yes", "btn-lg btn-warning");
+    createNode("root", "Button", "lvl1No", "No", "btn-lg btn-danger");
 }
 function createNode(parentID, elementType, nodeId, text, classes){
+    var node = document.createElement(elementType);//Button
+    node.setAttribute("id", nodeId);//lvl1yes
+    node.setAttribute("class",classes);
+    node.setAttribute("onClick", "call"+text+"()");
+    node.onClick = "call"+text+"()";
+    var textnode = document.createTextNode(text);//Yes
+    node.appendChild(textnode);
+    document.getElementById(parentID).appendChild(node);//root
 
 }
