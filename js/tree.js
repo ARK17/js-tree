@@ -1,7 +1,19 @@
 function myTreeInit() {
+    //buttonClicked[0]+=1;
+     i=0;
+     path = '';
+     found = false;
+     exception = false;
+     output = '';
+     buttonClicked = Array(16).fill(0);
+    var myNode = document.getElementById("root");
+    while (myNode.firstChild) {
+        myNode.removeChild(myNode.firstChild);
+    }
     createDiv("root", "rootDiv");
-    createNode("rootDiv", "Button", "lvl0Yes", "Yes", "btn-lg btn-warning","callYes(\'lvl0\')");
-    createNode("rootDiv", "Button", "lvl0No", "No", "btn-lg btn-danger","callNo(\'lvl0\')");
+    createDiv("rootDiv", "lvl0Div");
+    createNode("lvl0Div", "Button", "lvl0Yes", "Yes", "btn-lg btn-warning","callYes(\'lvl0\')");
+    createNode("lvl0Div", "Button", "lvl0No", "No", "btn-lg btn-danger","callNo(\'lvl0\')");
 }
 function createDiv(parentID, divId){
     var div = document.createElement("div");//div
