@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  </head>
+  <body>
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-3"></div>
+              <div class="col-5 mt-4">
+                    <div id="root" class="alert alert-info">
+                        <strong>今の勤務や収入に満足していますか？</strong> 
+                        <a id="rootYes" href="#" class="btn btn-xs btn-success pull-right ml-4" onclick="decision('rootNo', 'a')">Yes</a>
+                        <a id="rootNo" href="#" class="btn btn-xs btn-warning pull-right ml-2" onclick="decision('rootYes', 'b')">No</a>
+                    </div>
+                    <!-- action yes root-->
+                    <div id="a" class="d-none alert alert-info" >
+                            <strong>これまでの転勤/転職回数は？</strong> 
+                            <a id="aOp1" href="#" class="btn btn-xs btn-success pull-right ml-4" onclick="decision('aOp2', 'c')">op1</a>
+                            <a id="aOp2" href="#" class="btn btn-xs btn-warning pull-right ml-2" onclick="decision('aOp1', 'd')">op2</a>
+                    </div>
+                        <!-- option 1.1 -->
+                    <div id="c" class="d-none alert alert-info">
+                            <strong>これまでに紹介会社に登録、利用したことはある？</strong> 
+                            <a id="cYes" href="#" class="btn btn-xs btn-success pull-right ml-4" onclick="decision('cNo', 'd')">Yes</a>
+                            <a id="cNo" href="#" class="btn btn-xs btn-warning pull-right ml-2" onclick="decision('cYes', 'h')">No</a>
+                    </div>
+                    <!-- option 1.1 action no -->
+                    <div id="h" class="d-none alert alert-info">
+                            <strong>年齢、専門を問わず医療に携わっていきたい？</strong> 
+                            <a href="#" class="btn btn-xs btn-success pull-right ml-4">Yes C</a>
+                            <a href="#" class="btn btn-xs btn-warning pull-right ml-2">No B</a>
+                    </div>
+                       <!-- option 1.2 -->
+                       <div id="d" class="d-none alert alert-info">
+                            <strong>現在の勤務先は医局人事ですか？</strong> 
+                            <a id="dYes" href="#" class="btn btn-xs btn-success pull-right ml-4" onclick="decision('dNo', 'e')">Yes</a>
+                            <a id="dNo" href="#" class="btn btn-xs btn-warning pull-right ml-2" onclick="decision('dYes', 'k')">No</a>
+                        </div>
+                        <!-- option 1.2 acton no-->
+                       <div id="k" class="d-none alert alert-info">
+                            <strong>空いた時間でアルバイトを考えている？</strong> 
+                            <a href="#" class="btn btn-xs btn-success pull-right ml-4">Yes B</a>
+                            <a href="#" class="btn btn-xs btn-warning pull-right ml-2">No A</a>
+                        </div>
+                        <!-- option 1.2.1 -->
+                       <div id="e" class="d-none alert alert-info">
+                            <strong>医局人に疑問があり、ちょうど転職を考えている</strong> 
+                            <a id="eYes" href="#" class="btn btn-xs btn-success pull-right ml-4" >Yes D</a>
+                            <a id="eNo" href="#" class="btn btn-xs btn-warning pull-right ml-2" >No A</a>
+                        </div>
+
+                    <!-- action no root-->
+                    <div id="b" class="d-none alert alert-info">
+                            <strong>仕事を探すときに最も重要とすることは？</strong> 
+                            <a id="bOp1" href="#" class="btn btn-xs btn-success pull-right ml-4" onclick="decision('bOp2', 'f')">op1</a>
+                            <a id="bOp2" href="#" class="btn btn-xs btn-warning pull-right ml-2" onclick="decision('bOp3', 'g')">op2</a>
+                            <a id="bOp3" href="#" class="btn btn-xs btn-danger pull-right ml-2" onclick="decision('bOp1', 'c')">op3</a>
+                    </div>
+                    <!-- action no 2 op1-->
+                    <div id="f" class="d-none alert alert-info">
+                            <strong>今まさに人間関係に違和感を感じている？</strong> 
+                            <a id="fYes" href="#" class="btn btn-xs btn-success pull-right ml-4" onclick="decision('fNo', 'i')">Yes</a>
+                            <a id="fNo" href="#" class="btn btn-xs btn-warning pull-right ml-2" onclick="decision('fYes', 'j')">No</a>
+                    </div>
+                    <!-- action no 2 op2-->
+                    <div id="g" class="d-none alert alert-info">
+                            <strong>月ごとにスケジュールを貯製できる勤務をしたい？</strong> 
+                            <a id="gYes" href="#" class="btn btn-xs btn-success pull-right ml-4" onclick="decision('gNo', 'h')">Yes</a>
+                            <a id="gNo" href="#" class="btn btn-xs btn-warning pull-right ml-2" onclick="decision('gYes', 'i')">No</a>
+                    </div>
+                    <!-- action no 2 op2 action no-->
+                    <div id="i" class="d-none alert alert-info">
+                            <strong>今すぐに環境を変えたいと思っている？</strong> 
+                            <a id="iYes" href="#" class="btn btn-xs btn-success pull-right ml-4" >Yes call D</a>
+                            <a id="iNo" href="#" class="btn btn-xs btn-warning pull-right ml-2" onclick="decision('iYes', 'j')">No</a>
+                    </div>
+                    <!-- action no 2 op2 action no no-->
+                    <div id="j" class="d-none alert alert-info">
+                            <strong>将来を考えてアルバイトをしながら情報取集をしたい？</strong> 
+                            <a href="#" class="btn btn-xs btn-success pull-right ml-4">Yes E</a>
+                            <a href="#" class="btn btn-xs btn-warning pull-right ml-2">No A</a>
+                    </div>
+              </div>
+              <div class="col-3"></div>
+          </div>
+      </div>
+    <script>
+        function decision(hideId, showId){
+            const myCSS = 'alert alert-info';
+            alert('show '+showId+' hide '+hideId);
+            document.getElementById(hideId).style.display = 'none';
+            document.getElementById(showId).className = myCSS;
+        }
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>
